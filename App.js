@@ -7,16 +7,14 @@
  */
 
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
+
+import Landing from './src/pages/Landing';
 
 const App: () => React$Node = () => {
   return (
     <>
+      <Landing />
       <StatusBar barStyle="light-content" />
     </>
   );
