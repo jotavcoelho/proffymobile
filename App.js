@@ -15,7 +15,7 @@ const App: () => React$Node = () => {
   return (
     <>
       <Landing />
-      <StatusBar translucent={true} />
+      <StatusBar backgroundColor="#8257e5" barStyle="light-content" />
     </>
   );
 };
