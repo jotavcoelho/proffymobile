@@ -5,17 +5,18 @@
  * @format
  * @flow strict-local
  */
- 
+
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 
-import Landing from './src/pages/Landing';
+import AppStack from './src/routes/AppStack';
+
 
 const App: () => React$Node = () => {
   return (
     <>
-      <Landing />
+      <AppStack />
       <StatusBar backgroundColor="#8257e5" barStyle="light-content" />
     </>
   );
