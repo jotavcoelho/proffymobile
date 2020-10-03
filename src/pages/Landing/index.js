@@ -17,6 +17,10 @@ const Landing = () => {
     navigate('Teach');
   }
 
+  function handleNavigateToStudy() {
+    navigate('Study');
+  }
+
   return <View style={styles.container}>
     <Image source={landingImg} style={styles.banner} />
     <Text style={styles.title}>
@@ -26,6 +30,7 @@ const Landing = () => {
 
     <View style={styles.buttonsContainer}>
       <RectButton 
+        onPress={handleNavigateToStudy}
         style={[styles.button, styles.primaryButton]}
       >
         <Image source={studyIcon} />
