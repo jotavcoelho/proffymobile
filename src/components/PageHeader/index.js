@@ -3,12 +3,13 @@ import { View } from 'react-native';
 
 import styles from './styles';
 
-function TeacherList() {
+function PageHeader() {
   return (
-    <View style={styles.container} >
-
+    <View>
+      
     </View>
-  );
+  )
 }
 
-export default TeacherList;
+export default PageHeader;
+ 
