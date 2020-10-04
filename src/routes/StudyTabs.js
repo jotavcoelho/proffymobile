@@ -42,7 +42,12 @@ function StudyTabs() {
         component={TeacherList} 
         options={{
           tabBarLabel: 'Proffys',
-          tabBarIcon: ({color, size}) => <Icon name="easel-outline" size={size} color={color} />
+          tabBarIcon: ({color, size, focused}) => 
+            <Icon 
+              name="easel-outline" 
+              size={size} 
+              color={focused ? '#8257e5' : color} 
+            />
         }}
       />
       <Screen 
@@ -50,7 +55,12 @@ function StudyTabs() {
         component={Favorites} 
         options={{
           tabBarLabel: 'Favorites',
-          tabBarIcon: ({color, size}) => <Icon name="heart-outline" size={size} color={color} />
+          tabBarIcon: ({color, size, focused}) => 
+            <Icon 
+              name="heart-outline" 
+              size={size} 
+              color={focused ? '#8257e5' : color} 
+            />
         }}
       />
     </Navigator>
