@@ -8,6 +8,34 @@ const styles = StyleSheet.create({
   
   teacherList: {
     marginTop: -60,
+  },
+
+  searchForm: {
+    marginBottom: 8,
+  },
+
+  label: {
+    color: '#d4c2ff',
+    fontFamily: 'Poppins-Regular',
+  },
+
+  inputGroup: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  inputBlock: {
+    width: '48%',
+  },
+
+  input: {
+    height: 54,
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+    marginTop: 4,
+    marginBottom: 16,
   }
 });
 

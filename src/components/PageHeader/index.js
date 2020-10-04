@@ -8,7 +8,7 @@ import logoImg from '../../assets/images/logo.png';
 
 import styles from './styles';
 
-function PageHeader({ title }) {
+function PageHeader({ title, children }) {
   const { navigate } = useNavigation();
 
   function handleGoBack() {
@@ -28,6 +28,8 @@ function PageHeader({ title }) {
       <Text style={styles.title}>
         {title}
       </Text>
+
+      {children}
     </View>
   )
 }
