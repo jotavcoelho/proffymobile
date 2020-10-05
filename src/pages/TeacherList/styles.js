@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   
   teacherList: {
-    marginTop: -15,
+    marginTop: -20,
   },
 
   searchForm: {

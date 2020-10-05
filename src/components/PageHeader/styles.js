@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Archivo-Bold',
     color: '#FFF',
     fontSize: 24,
-    lineHeight: 28,
+    lineHeight: 32,
     maxWidth: 160,
     marginVertical: 10,
   },
