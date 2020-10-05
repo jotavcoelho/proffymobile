@@ -8,7 +8,7 @@ import logoImg from '../../assets/images/logo.png';
 
 import styles from './styles';
 
-function PageHeader({ title, children }) {
+function PageHeader({ title, children, headerRight }) {
   const { navigate } = useNavigation();
 
   function handleGoBack() {
@@ -25,9 +25,10 @@ function PageHeader({ title, children }) {
         <Image source={logoImg} resizeMode="contain" />
       </View>
 
-      <Text style={styles.title}>
-        {title}
-      </Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>{title}</Text>
+        {headerRight}
+      </View>
 
       {children}
     </View>
