@@ -4,14 +4,32 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PageHeader from '../../components/PageHeader';
 import TeacherItem from '../../components/TeacherItem';
+import api from '../../services/api';
 
 import styles from './styles';
 
 function TeacherList() {
+  const [teachers, setTeachers] = useState([]);
   const [visibleFilter, setVisibleFilter] = useState(false);
+
+  const [subject, setSubject] = useState('');
+  const [weekday, setWeekday] = useState('');
+  const [time, setTime] = useState('');
 
   function showFilters() {
     setVisibleFilter(!visibleFilter);
+  }
+
+  async function searchTeachers() {
+    const response = await api.get('classes', {
+      params: {
+        subject,
+        weekday,
+        time
+      }
+    });
+    setVisibleFilter(false);
+    setTeachers(response.data);
   }
 
   return (
@@ -35,6 +53,8 @@ function TeacherList() {
               style={styles.input}
               placeholder="What's the subject?"
               placeholderTextColor="#c1bccc"
+              value={subject}
+              onChangeText={text => setSubject(text)}
             />
 
             <View style={styles.inputGroup}>
@@ -44,6 +64,8 @@ function TeacherList() {
                     style={styles.input}
                     placeholder="Weekday"
                     placeholderTextColor="#c1bccc"
+                    value={weekday}
+                    onChangeText={text => setWeekday(text)}
                   />
               </View>
               
@@ -53,11 +75,16 @@ function TeacherList() {
                     style={styles.input}
                     placeholder="Time"
                     placeholderTextColor="#c1bccc"
+                    value={time}
+                    onChangeText={text => setTime(text)}
                   />
               </View>
             </View>
 
-            <RectButton style={styles.submitButton}>
+            <RectButton 
+              style={styles.submitButton}
+              onPress={searchTeachers}
+            >
               <Text style={styles.submitButtonText}>Filter</Text>
             </RectButton>
           </View>
@@ -71,10 +98,12 @@ function TeacherList() {
           paddingBottom: 24
         }}
       >
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
+        {teachers.map((teacher, index) => 
+          <TeacherItem 
+            key={index}
+            teacherData={teacher}
+          />
+        )}
       </ScrollView>
     </View>
   );

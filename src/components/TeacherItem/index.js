@@ -8,29 +8,27 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 
 import styles from './styles';
 
-function TeacherItem() {
+function TeacherItem({ teacherData }) {
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
         <Image 
           style={styles.avatar}
-          source={{ uri: 'https://github.com/diego3g.png' }}
+          source={{ uri: teacherData.avatar }}
         />
 
         <View style={styles.profileInfo}>
-          <Text style={styles.name}>Diego Fernandes</Text>
-          <Text style={styles.subject}>Chemistry</Text>
+          <Text style={styles.name}>{teacherData.name}</Text>
+          <Text style={styles.subject}>{teacherData.subject}</Text>
         </View>
       </View>
 
-      <Text style={styles.bio}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae accusantium molestias doloremque cupiditate tempora eum non soluta, ipsa sit recusandae, dolores atque maiores, architecto harum eaque? Magnam, quae! Dolore, dolor.
-      </Text>
+      <Text style={styles.bio}>{teacherData.bio}</Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
           Price per hour {'   '}
-          <Text style={styles.priceValue}>$20</Text>
+          <Text style={styles.priceValue}>${teacherData.cost}</Text>
         </Text>
 
         <View style={styles.buttonsContainer}>
