@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 40,
-    paddingVertical: 40,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
     backgroundColor: '#8257e5',
   },
 
@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Archivo-Bold',
     color: '#FFF',
     fontSize: 24,
-    lineHeight: 32,
+    lineHeight: 28,
     maxWidth: 160,
-    marginVertical: 40,
+    marginVertical: 10,
   },
 
 });

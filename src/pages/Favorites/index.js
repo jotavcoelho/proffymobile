@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
 
 import PageHeader from '../../components/PageHeader';
@@ -7,6 +7,8 @@ import TeacherItem from '../../components/TeacherItem';
 import styles from './styles';
 
 function Favorites() {
+  const [teachers, setTeachers] = useState([]);
+
   return (
     <View style={styles.container} >
       <PageHeader title="Favorite Proffys" />  
@@ -18,10 +20,12 @@ function Favorites() {
           paddingBottom: 24
         }}
       >
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
+        {teachers.map((teacher, index) => 
+          <TeacherItem 
+            key={index}
+            teacherData={teacher}
+          />
+        )}
       </ScrollView>
     </View>
   );
