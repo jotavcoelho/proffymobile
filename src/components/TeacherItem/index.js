@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, Text, Linking } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
+import api from '../../services/api';
 
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
@@ -12,7 +13,10 @@ import styles from './styles';
 function TeacherItem({ teacherData, favorited }) {
   const [isFavorited, setIsFavorited] = useState(favorited);
 
-  function openWhatsapp() {
+  function openWhatsapp(user_id) {
+    api.post('/connections', {
+      user_id
+    });
     Linking.openURL(`whatsapp://send?phone=${teacherData.whatsapp}`)
   }
 
@@ -75,7 +79,7 @@ function TeacherItem({ teacherData, favorited }) {
             }
           </RectButton>
           
-          <RectButton onPress={openWhatsapp} style={styles.contactButton}>
+          <RectButton onPress={() => openWhatsapp(teacherData.id)} style={styles.contactButton}>
             <Image source={whatsappIcon} />
             <Text style={styles.contactButtonText}>Get in touch</Text>
           </RectButton>
